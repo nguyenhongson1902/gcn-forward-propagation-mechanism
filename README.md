@@ -14,7 +14,8 @@ I will try to explain everything in a clear way so you can follow along without 
 
 
 ## Key things that make GCNs different from CNNs
-1. 
+1. Basically, the term "convolution" in GCN and CNN is similar regarding "weight sharing" mechanism.
+2. 
 
 ## Keywords
 Graph convolutional network, Convolutional Neural Network, Message passing, Fast approximation
