@@ -23,7 +23,7 @@ GCNs can be categorized into 2 major algorithms, that are **Spatial Graph Convol
 
 ## Key things to note in mind
 1. Basically, the term "convolution" in GCN and CNN are similar with regard to "weight sharing" mechanism.
-2. By adding an adjacency matrix A to the forward function of GCNs, it's enable a node can learn from the features of its own neighboring nodes. This mechanism is called message passing operation (information passing through the nodes in the garphs).
+2. By adding an adjacency matrix A to the forward function of GCNs, it enables a node can learn from the features of its own neighboring nodes. This mechanism is called message passing operation (information passing through the nodes in the graph).
 3. We normalized features using "renormalization trick" from the article Fast Approximate Spectral-based Graph Convolutional Networks.
 4. GCNs can learn features representation even before training.
 
