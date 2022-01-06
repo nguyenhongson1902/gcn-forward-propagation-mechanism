@@ -30,11 +30,11 @@ The original idea behind Spectral GCN is that information in a graph propagated 
 
 ![Forward function in GCNs](./images/forward_function.png)
 
-To this point, you may wonder what the A* is. Simply, A* is the normalized version of **A**. Why do we need to normalize **A**? Let's see in the following parts.
+To this point, you may wonder what the A* is. Simply, <strong>A*</strong> is the normalized version of **A**. Why do we need to normalize **A**? Let's see in the following parts.
 
 ## 3. Building a Graph Convolutional Network
 ### 3.1 Initializing the Graph G
-We will use [NetworkX](https://networkx.org/) to create an undirected graph G. The graph consists of 6 nodes, and each node feature is its own order number. For instance, node 1 will have a feature 1, node 2 will have a feature 2, so on and so forth. In this tutorial, we're not going to use edge features.
+We will use [NetworkX](https://networkx.org/) to create an undirected graph **G**. The graph consists of 6 nodes, and each node feature is its own order number. For instance, node 1 will have a feature 1, node 2 will have a feature 2, so on and so forth. In this tutorial, we're not going to use edge features.
 
 **Output:**
 
