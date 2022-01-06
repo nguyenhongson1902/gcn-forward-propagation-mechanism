@@ -27,7 +27,7 @@ To answer this question, we have to go through knowledge about CNNs a bit. CNNs 
 GCNs perform operations that are similar to convolution in CNNs, which is the GCN model learns features from neighboring nodes. The major difference between GNNs (in general) and CNNs is that CNNs are specially built to operate on Euclidean data, which is considered as regular structured data (data points that can be plotted on a multidimensional plain. For example, point A has x cordination is 3 and y cordination is 4 can be plotted on a 2D plain at x=3, y=4), while GNNs are the generalized version of CNNs where the nodes connections (edges in a graph) can vary and the nodes are unordered. Because of these, GNN can work well on irregular structured data (non-Euclidean data). 
 GCNs can be categorized into 2 major algorithms, that are **Spatial Graph Convolutional Networks** and **Spectral Graph Convolutional Networks**. In this tutorial, we will focus on **Spectral Graph Convolutional Networks**. Until now, I have done the basics you need to know to answer the question above. Next, we will move on to the detailed caculations inside a GCN when forwarding.
 
-## 2. Fast approximate spectral Graph Convolutional Networks
+## 2. Fast approximate Spectral Graph Convolutional Networks
 
 <p align="center">
   <img src="./images/neighboring_nodes_features.png" />
@@ -97,7 +97,7 @@ If we compare **AX** (unnormalized) with **DAX** (normalized), we will notice th
 </p>
 
 Why would node 3 have different values from node 4 and 5 after normalization if they have the same initial values (12)?
-Let’s take a look back at our graph. Node 3 has 3 incident edges, while nodes 4 and 5 only have 2 incident edges. The fact that node 3 has a higher degree than node 4 and 5 leads to a lower weighting of node 3’s features in DAX. In other words, the lower the degree of a node, the stronger that a node belongs to a certain group or cluster.
+Let’s take a look back at our graph. Node 3 has 3 incident edges, while nodes 4 and 5 only have 2 incident edges. The fact that node 3 has a higher degree than node 4 and 5 leads to a lower weighting of node 3’s features in **DAX**. In other words, the lower the degree of a node, the stronger that a node belongs to a certain group or cluster.
 In fact, people usually perform symmetric normalization, this method is shown below
 
 <p align="center">
@@ -110,10 +110,10 @@ Let’s calculate the normalized values using the new symmetric normalization eq
   <img src="./images/symmetric_normalization_results.png" />
 </p>
 
-Until now, we will realize that <strong>A*</strong> above is referred as **renormalization trick**.
-We have done with features handling, now we will finalize our GCN.
+Until now, we might realize that <strong>A*</strong> above is referred as **renormalization trick**.
+We have done with features handling so far and now we will finalize our GCN.
 ### 3.4 Adding weights and an activation function
-We're going to build a 2-layer GCN, 1 hidden layer and 1 output layer using ReLU as the activation function. We will use random seeds to reproduce experimental results. First things first, we need to initialize weights, which cannot be 0. In this experiment, we are going to set 4 neurons for the hidden layer. We will create only 2 output neurons for plotting the features representation in a 2D plain.
+We're going to build a 2-layer GCN, 1 hidden layer and 1 output layer using ReLU as the activation function. We will use random seeds to reproduce experimental results. First things first, we need to initialize weights, which cannot be 0. In this experiment, we are going to set 4 neurons for the hidden layer and create only 2 output neurons for plotting the features representation in a 2D plain.
 
 **Output:**
 
@@ -129,12 +129,12 @@ The special thing of GCN is that it **can learn features representation even bef
   <img src="./images/plot.png" />
 </p>
 
-From the plot above, it can be clearly seen that there are 2 major groups, where the left group consists of nodes 0, 1, 2, and the right group consists of nodes 3, 4, 5. We can infer that the GCNs **can already learn the feature representations even before training or backpropagation**.
+From the plot above, it can be clearly seen that there are 2 major groups, where the left group consists of nodes 0, 1, 2, and the right group consists of nodes 3, 4, 5. We can infer that the GCNs **can already learn the features representation even before training or backpropagation**.
 
 
 ## Key things to note in mind
 1. Basically, the term "convolution" in GCN and CNN are similar with regard to "weight sharing" mechanism.
-2. By adding an adjacency matrix **A** to the forward function of GCNs, it enables a node can learn from the features of its own neighboring nodes. This mechanism is called message passing operation (information passing through the nodes in the graph).
+2. By adding an adjacency matrix **A** to the forward function of GCNs, it enables a node to learn from the features of its own neighboring nodes. This mechanism is called message passing operation (information passing through the nodes in the graph).
 3. We normalized features using "renormalization trick" from the article Fast Approximate Spectral-based Graph Convolutional Networks.
 4. GCNs can learn features representation even before training.
 
@@ -146,3 +146,4 @@ Graph convolutional networks, Convolutional neural networks, Message passing, Fa
 ## References:
 1. [Understanding Graph Convolutional Networks for Node Classification](https://towardsdatascience.com/understanding-graph-convolutional-networks-for-node-classification-a2bfdb7aba7b)
 2. [Semi-Supervised Classification with Graph Convolutional Networks by Thomas N. Kipf, Max Welling](https://arxiv.org/abs/1609.02907)
+3. [Spectral-based Graph Convolutional Network for Directed Graphs by Yi Ma, Jianye Hao, Yaodong Yang, Han Li, Junqi Jin, Guangyong Chen](https://arxiv.org/abs/1907.08990)
