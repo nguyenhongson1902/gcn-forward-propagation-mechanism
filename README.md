@@ -30,11 +30,11 @@ The original idea behind Spectral GCN is that information in a graph propagated 
 
 ![Forward function in GCNs](./images/forward_function.png)
 
-To this point, you may wonder what the A* is. Simply, A* is the normalized version of A. Why do we need to normalize A? Let's see in the following parts.
+To this point, you may wonder what the A* is. Simply, A* is the normalized version of **A**. Why do we need to normalize **A**? Let's see in the following parts.
 
 ## 3. Building a Graph Convolutional Network
 ### 3.1 Initializing the Graph G
-We will use NetworkX to create an undirected graph G. The graph consists of 6 nodes, and each node feature is its own order number. For instance, node 1 will have a feature 1, node 2 will have a feature 2, so on and so forth. In this tutorial, we're not going to use edge features.
+We will use [NetworkX](https://networkx.org/) to create an undirected graph G. The graph consists of 6 nodes, and each node feature is its own order number. For instance, node 1 will have a feature 1, node 2 will have a feature 2, so on and so forth. In this tutorial, we're not going to use edge features.
 
 **Output:**
 
@@ -47,29 +47,29 @@ The next step is to obtain the **Adjacency Matrix** (**A**) and the **Node Featu
 
 ![Inserting A](./images/inserting_A.png)
 
-Next, we're going to perform dot product A and X to see how inserting the adjacency matrix A to the forward function can add to richer features representation of the GCN model.
+Next, we're going to perform dot product **A** and **X** to see how inserting the adjacency matrix **A** to the forward function can add to richer features representation of the GCN model.
 
 **Output:**
 
 ![Dot product A and X](./images/dot_product.png)
 
-The key thing to note in mind is that AX is the result of the **sum of neighboring nodes features**. For example, the first row of AX corresponds to the sum of nodes features connected to node 0, which is node 1, 2, and 3. This gives us an idea of how the node connectivity impacts the hidden features representation. If you pay more attention to AX, you can see that AX **doesn't take into account the features of the node itself**. We can fix this by adding self-loops to the adjacency matrix A.
+The key thing to note in mind is that **AX** is the result of the **sum of neighboring nodes features**. For example, the first row of **AX** corresponds to the sum of nodes features connected to node 0, which is node 1, 2, and 3. This gives us an idea of how the node connectivity impacts the hidden features representation. If you pay more attention to **AX**, you can see that **AX** **doesn't take into account the features of the node itself**. We can fix this by adding self-loops to the adjacency matrix **A**.
 ### 3.3 Inserting self-loops and normalizing A
-Adding self-loops is like connecting a node to itself. That means all diagonal elements of A will be 1 because each node connect to itself. Call A_hat is the adjacency matrix A with self-loops inserted. Now, we will calculate the product of A_hat and X, called AX.
+Adding self-loops is like connecting a node to itself. That means all diagonal elements of **A** will be 1 because each node connect to itself. Call **A_hat** is the adjacency matrix **A** with self-loops inserted. Now, we will calculate the product of **A_hat** and **X**, called **AX**.
 
 **Output:**
 
 ![Inserting self-loops](./images/inserting_self_loops.png)
 
-A new problem arises, which is the elements of AX is **not normalized**. Similar to data pre-processing for any Neural Networks operation, we need to normalize the features to **prevent numerical instabilities** and **vanishing/exploding gradients** in order for the model to converge. In GCNs, we normalize our data by **calculating the Degree Matrix (D) and performing dot product operation of the inverse of D with AX**. The normalized features function is shown below
+A new problem arises, which is the elements of **AX** is **not normalized**. Similar to data pre-processing for any Neural Networks operation, we need to normalize the features to **prevent numerical instabilities** and **vanishing/exploding gradients** in order for the model to converge. In GCNs, we normalize our data by **calculating the Degree Matrix (D) and performing dot product operation of the inverse of D with AX**. The normalized features function is shown below
 
 ![Normalized features](./images/normalized_features.png)
 
-We will call it DAX from now on. In graph theory, degree means the number of edges a node is connected to.
+We will call it **DAX** from now on. In graph theory, degree means the number of edges a node is connected to.
 
 ![Output normalized features](./images/output_normalized_features.png)
 
-If we compare AX (unnormalized) with DAX (normalized), we will notice that:
+If we compare **AX** (unnormalized) with **DAX** (normalized), we will notice that:
 
 ![Compare AX vs DAX](./images/unnormalized_vs_normalized.png)
 
