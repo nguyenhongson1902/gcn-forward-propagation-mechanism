@@ -30,7 +30,7 @@ The original idea behind Spectral GCN is that information in a graph propagated 
 
 ![Forward function in GCNs](./images/forward_function.png)
 
-To this point, you may wonder what the A* is. Simply, <strong>A*</strong> is the normalized version of **A**. Why do we need to normalize **A**? Let's see in the following parts.
+To this point, you may wonder what the <strong>A*</strong> is. Simply, <strong>A*</strong> is the normalized version of **A**. Why do we need to normalize **A**? Let's see in the following parts.
 
 ## 3. Building a Graph Convolutional Network
 ### 3.1 Initializing the Graph G
@@ -83,7 +83,7 @@ Let’s calculate the normalized values using the new symmetric normalization eq
 
 ![Symmetric normalization results](./images/symmetric_normalization_results.png)
 
-Until now, we will realize that A* above is referred as **renormalization trick**.
+Until now, we will realize that <strong>A*</strong> above is referred as **renormalization trick**.
 We have done with features handling, now we will finalize our GCN.
 ### 3.4 Adding weights and an activation function
 We're going to build a 2-layer GCN, 1 hidden layer and 1 output layer using ReLU as the activation function. We will use random seeds to reproduce experimental results. First things first, we need to initialize weights, which cannot be 0. In this experiment, we are going to set 4 neurons for the hidden layer. We will create only 2 output neurons for plotting the features representation in a 2D plain.
@@ -103,7 +103,7 @@ From the plot above, it can be clearly seen that there are 2 major groups, where
 
 ## Key things to note in mind
 1. Basically, the term "convolution" in GCN and CNN are similar with regard to "weight sharing" mechanism.
-2. By adding an adjacency matrix A to the forward function of GCNs, it enables a node can learn from the features of its own neighboring nodes. This mechanism is called message passing operation (information passing through the nodes in the graph).
+2. By adding an adjacency matrix **A** to the forward function of GCNs, it enables a node can learn from the features of its own neighboring nodes. This mechanism is called message passing operation (information passing through the nodes in the graph).
 3. We normalized features using "renormalization trick" from the article Fast Approximate Spectral-based Graph Convolutional Networks.
 4. GCNs can learn features representation even before training.
 
