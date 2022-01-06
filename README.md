@@ -8,11 +8,13 @@ to the end without any hindrance.
 
 ## Abbreviation
 <center>
+  
 | Terminology | Description |
 | ----------- | ----------- |
 | GCN      | Graph Convolutional Network       |
 | GNN      | Graph Neural Network       |
 | CNN   | Convolutional Neural Network        |
+  
 </center>
 
 ## 1. What makes GCNs different from CNNs?
