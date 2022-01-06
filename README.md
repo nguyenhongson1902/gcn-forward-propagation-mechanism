@@ -24,6 +24,9 @@ GCNs can be categorized into 2 major algorithms, that are **Spatial Graph Convol
 
 ## 2. Fast approximate spectral Graph Convolutional Networks
 
+<p align="center">
+  <img src="./images/neighboring_nodes_features.png" />
+</p>
 ![Learning from neighboring nodes features](./images/neighboring_nodes_features.png)
 
 The original idea behind Spectral GCN is that information in a graph propagated node by node. In this approach, we will take into account the **adjacency matrix A** in addition to node features. **A** is a matrix representing connections (edges) between nodes in the forward propagation equation. By adding **A** to the forward equation, it enables the GCN model to learn feature representations based on nodes connectivity (illustrated above). For the sake of simplicity, the bias term **b** will be omitted. The forward function is given below
