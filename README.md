@@ -17,6 +17,8 @@ to the end without any hindrance.
   
 </div>
 
+## Task
+Node classification, link prediction
 ## 1. What makes GCNs different from CNNs?
 To answer this question, we have to go through knowledge about CNNs a bit. CNNs use an operation called "convolution", which refers to multiplying the input neurons with a set of weights that are known as *filters* or *kernels*. These filters have a role like a sliding window across the whole image, which enables CNNs can learn features from neighboring cells. One of the special things about CNN is that it has **weight sharing** mechanism, which means within the same layer, the same filter will be used throughout the image (a layer here means a convolutional layer). For instance, using CNN to classify an image is a cat or not, the same filter will be used in the same layer to detect the nose and the ears of the cat (illustration below). 
 
